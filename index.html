@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Godfather — Archivo Corleone | SENA Evidencia 21</title>
+  <meta name="description" content="Archivo cinematográfico digital interactivo de The Godfather (1972), construido con Bootstrap 5.3 para la Evidencia 21 del SENA.">
+  <meta name="author" content="SENA Aprendiz">
+  <meta name="theme-color" content="#10100F">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Godfather — Archivo Corleone">
+  <meta property="og:description" content="Archivo cinematográfico digital interactivo de The Godfather (1972).">
+  <meta property="og:locale" content="es_ES">
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Identidad visual (se empaqueta desde src/assets/css/main.css) -->
+
+  <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg">
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido principal</a>
+
+  <!-- ============ NAVBAR (Bootstrap) ============ -->
+  <nav class="navbar navbar-expand-lg fixed-top site-nav" id="siteNav" aria-label="Navegación principal">
+    <div class="container">
+      <a class="navbar-brand brand" href="#home" aria-label="The Godfather — Archivo Corleone, inicio">
+        <span class="brand__mark">The Godfather</span>
+        <span class="brand__sub">Archivo Corleone</span>
+      </a>
+
+      <div class="d-flex align-items-center gap-2 order-lg-last ms-auto ms-lg-3">
+        <button type="button" class="btn btn-outline-light btn-sm audio-btn" id="audioToggle"
+                aria-pressed="false" aria-label="Activar música de fondo" title="Activar música de fondo">
+          <i class="bi bi-volume-mute" aria-hidden="true"></i>
+          <span class="audio-btn__text d-none d-sm-inline">Sonido</span>
+        </button>
+
+        <button class="navbar-toggler nav-toggle" type="button"
+                data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menú de navegación">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link is-active" href="#home">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pelicula">La Película</a></li>
+          <li class="nav-item"><a class="nav-link" href="#personajes">Personajes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cronologia">Cronología</a></li>
+          <li class="nav-item"><a class="nav-link" href="#legado">Legado</a></li>
+          <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
+          <li class="nav-item"><a class="nav-link" href="#quiz">Quiz</a></li>
+          <li class="nav-item"><a class="nav-link" href="#opiniones">Opiniones</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home" aria-labelledby="heroTitle">
+      <div class="container">
+        <div class="hero__inner">
+          <span class="hero__kicker">Francis Ford Coppola · 1972</span>
+          <h1 class="hero__title" id="heroTitle">
+            The Godfather
+            <span class="accent">Archivo Corleone</span>
+          </h1>
+          <p class="hero__lead">
+            Un archivo cinematográfico digital para recorrer la historia, los personajes
+            y el legado de una de las obras más influyentes del cine clásico.
+          </p>
+          <blockquote class="hero__quote">
+            Nunca odies a tus enemigos: afecta a tu juicio.
+            <cite>— Don Vito Corleone</cite>
+          </blockquote>
+          <div class="hero__actions">
+            <a class="btn btn-primary btn-lg" href="#pelicula">
+              <i class="bi bi-play-circle" aria-hidden="true"></i> Explorar la película
+            </a>
+            <a class="btn btn-outline-light btn-lg" href="#quiz">
+              <i class="bi bi-question-circle" aria-hidden="true"></i> Probar mis conocimientos
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LA PELÍCULA ============ -->
+    <section class="section section--band" id="pelicula" aria-labelledby="peliculaTitle">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="section-head__eyebrow">Ficha técnica</span>
+          <h2 class="section-head__title" id="peliculaTitle">La Película</h2>
+          <div class="rule" aria-hidden="true"></div>
+          <p class="section-head__lead">Producción, contexto y datos esenciales de la obra.</p>
+        </header>
+
+        <div class="row g-4">
+          <div class="col-lg-7" data-reveal>
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="card-title d-flex align-items-center flex-wrap gap-2">
+                  Información cinematográfica
+                  <span class="badge bg-burgundy">1972</span>
+                </h3>
+                <div class="fact-grid mt-3 mb-4" id="movieFacts">
+                  <!-- Renderizado por JS -->
+                </div>
+                <div class="prose">
+                  <h4 class="text-gold">Sinopsis</h4>
+                  <p id="movieSynopsis"></p>
+                  <h4 class="text-gold mt-4">Contexto</h4>
+                  <p id="movieContext"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5" data-reveal>
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="card-title">Cronología de producción</h3>
+                <ul class="timeline mt-3" id="productionTimeline">
+                  <!-- Renderizado por JS -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PERSONAJES ============ -->
+    <section class="section" id="personajes" aria-labelledby="personajesTitle">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="section-head__eyebrow">Reparto</span>
+          <h2 class="section-head__title" id="personajesTitle">Personajes principales</h2>
+          <div class="rule" aria-hidden="true"></div>
+          <p class="section-head__lead">Siete figuras que sostienen la tragedia de la familia Corleone.</p>
+        </header>
+
+        <div class="row g-4" id="charactersGrid">
+          <!-- Renderizado por JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CRONOLOGÍA ============ -->
+    <section class="section section--band" id="cronologia" aria-labelledby="cronologiaTitle">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="section-head__eyebrow">Historia</span>
+          <h2 class="section-head__title" id="cronologiaTitle">Cronología narrativa</h2>
+          <div class="rule" aria-hidden="true"></div>
+        </header>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-9" data-reveal>
+            <div class="alert alert-warning" role="note">
+              <i class="bi bi-exclamation-triangle-fill" aria-hidden="true"></i>
+              <strong>Aviso de spoilers.</strong> Esta sección resume acontecimientos clave de la trama.
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <ul class="timeline" id="storyTimeline">
+                  <!-- Renderizado por JS -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LEGADO ============ -->
+    <section class="section" id="legado" aria-labelledby="legadoTitle">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="section-head__eyebrow">Influencia</span>
+          <h2 class="section-head__title" id="legadoTitle">Legado cinematográfico</h2>
+          <div class="rule" aria-hidden="true"></div>
+          <p class="section-head__lead">Por qué esta película sigue definiendo el cine moderno.</p>
+        </header>
+
+        <div class="row g-4">
+          <div class="col-lg-6" data-reveal>
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="card-title"><i class="bi bi-award text-gold" aria-hidden="true"></i> Reconocimiento</h3>
+                <ul class="award-list" id="legacyList">
+                  <!-- Renderizado por JS -->
+                </ul>
+                <p class="text-dim mt-4 mb-0">
+                  En conjunto, estos reconocimientos explican por qué la película se estudia
+                  como un punto de inflexión en la historia del cine estadounidense.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6" data-reveal>
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="card-title"><i class="bi bi-camera-reels text-gold" aria-hidden="true"></i> Oficio cinematográfico</h3>
+                <div id="craftList">
+                  <!-- Renderizado por JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALERÍA ============ -->
+    <section class="section section--band" id="galeria" aria-labelledby="galeriaTitle">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="section-head__eyebrow">Imágenes</span>
+          <h2 class="section-head__title" id="galeriaTitle">Galería cinematográfica</h2>
+          <div class="rule" aria-hidden="true"></div>
+          <p class="section-head__lead">Selección visual del universo de la película.</p>
+        </header>
+
+        <div class="gallery" id="galleryGrid">
+          <!-- Renderizado por JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ QUIZ ============ -->
+    <section class="section" id="quiz" aria-labelledby="quizTitle">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="section-head__eyebrow">Interactivo</span>
+          <h2 class="section-head__title" id="quizTitle">Quiz cinematográfico</h2>
+          <div class="rule" aria-hidden="true"></div>
+          <p class="section-head__lead">Ocho preguntas para medir cuánto conoces la película.</p>
+        </header>
+
+        <div class="quiz-shell">
+          <div class="quiz-progress" role="progressbar" aria-label="Progreso del quiz" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="quizProgressBar">
+            <div class="quiz-progress__fill" id="quizProgressFill"></div>
+          </div>
+
+          <form id="quizForm" novalidate>
+            <div id="quizQuestions">
+              <!-- Renderizado por JS -->
+            </div>
+            <div class="d-flex gap-2 justify-content-center mt-4 flex-wrap">
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-check2-circle" aria-hidden="true"></i> Calificar
+              </button>
+              <button type="button" class="btn btn-outline-secondary" id="quizReset">
+                <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i> Reiniciar
+              </button>
+            </div>
+          </form>
+
+          <div id="quizResult" hidden>
+            <!-- Renderizado por JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OPINIONES ============ -->
+    <section class="section section--band" id="opiniones" aria-labelledby="opinionesTitle">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="section-head__eyebrow">Comunidad</span>
+          <h2 class="section-head__title" id="opinionesTitle">Opiniones de los visitantes</h2>
+          <div class="rule" aria-hidden="true"></div>
+          <p class="section-head__lead">Comparte tu personaje favorito y tu valoración de la película.</p>
+        </header>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8" data-reveal>
+            <div class="card">
+              <div class="card-body">
+                <form id="reviewForm" novalidate>
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label class="form-label" for="visitorName">Nombre o alias</label>
+                      <input class="form-control" type="text" id="visitorName" name="visitor_name"
+                             maxlength="60" autocomplete="nickname" required
+                             aria-describedby="visitorNameError" placeholder="Cómo quieres aparecer">
+                      <div class="invalid-feedback" id="visitorNameError">Escribe un nombre de hasta 60 caracteres.</div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="favoriteCharacter">Personaje favorito</label>
+                      <select class="form-select" id="favoriteCharacter" name="favorite_character" required
+                              aria-describedby="favoriteCharacterError">
+                        <option value="">Selecciona un personaje…</option>
+                      </select>
+                      <div class="invalid-feedback" id="favoriteCharacterError">Elige un personaje.</div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="rating">Calificación</label>
+                      <select class="form-select" id="rating" name="rating" required
+                              aria-describedby="ratingError">
+                        <option value="">Selecciona una calificación…</option>
+                        <option value="5">5 — Obra maestra</option>
+                        <option value="4">4 — Excelente</option>
+                        <option value="3">3 — Notable</option>
+                        <option value="2">2 — Aceptable</option>
+                        <option value="1">1 — No me convenció</option>
+                      </select>
+                      <div class="invalid-feedback" id="ratingError">Elige una calificación entre 1 y 5.</div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="comment">Opinión</label>
+                      <input class="form-control" type="text" id="comment" name="comment"
+                             maxlength="140" required aria-describedby="commentError"
+                             placeholder="Resume tu opinión en una frase">
+                      <div class="invalid-feedback" id="commentError">Escribe entre 3 y 140 caracteres.</div>
+                    </div>
+                    <div class="col-12">
+                      <button type="submit" class="btn btn-primary" id="reviewSubmit">
+                        <i class="bi bi-send" aria-hidden="true"></i> Enviar opinión
+                      </button>
+                      <p class="form-text mt-3 mb-0" id="storageNote">
+                        Tus datos se guardan de forma anónima. No se solicitan correos ni contraseñas.
+                      </p>
+                    </div>
+                  </div>
+                </form>
+
+                <hr class="my-4" style="border-color: rgba(185,154,88,.16);">
+
+                <h3 class="card-title">Opiniones recientes</h3>
+                <div id="reviewsList" aria-live="polite">
+                  <!-- Renderizado por JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-foot">
+    <div class="container">
+      <div class="site-foot__grid">
+        <div>
+          <p class="site-foot__brand">The Godfather — Archivo Corleone</p>
+          <p class="site-foot__text">
+            Archivo cinematográfico digital construido con Bootstrap 5.3 como evidencia
+            académica de la competencia de desarrollo Front-End.
+          </p>
+        </div>
+        <div>
+          <p class="site-foot__title">Secciones</p>
+          <ul class="site-foot__links">
+            <li><a href="#pelicula">La Película</a></li>
+            <li><a href="#personajes">Personajes</a></li>
+            <li><a href="#cronologia">Cronología</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="site-foot__title">Evidencia 21</p>
+          <ul class="site-foot__links">
+            <li>SENA · Técnico en Programación de Software</li>
+            <li>Código de programa 233104</li>
+            <li>Fase de ejecución · 2026</li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-foot__bottom">
+        <span>© 2026 · Proyecto académico sin fines comerciales.</span>
+        <span>Música: <a href="./assets/audio/README.md" class="text-gold" target="_blank" rel="noopener noreferrer">[crédito pendiente / ranura libre]</a></span>
+        <span>Galería: <a href="./assets/images/CREDITS.md" class="text-gold" target="_blank" rel="noopener noreferrer">Créditos de imágenes</a></span>
+        <span>The Godfather © Paramount Pictures.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ MODAL DE PERSONAJE (Bootstrap) ============ -->
+  <div class="modal fade" id="characterModal" tabindex="-1" aria-labelledby="characterModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="characterModalTitle">Personaje</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <div class="character-detail">
+            <div>
+              <img class="character-detail__img" id="characterModalImg" alt="">
+            </div>
+            <div>
+              <dl class="character-detail__meta" id="characterModalMeta"></dl>
+              <h3 class="card-title mt-4">Biografía</h3>
+              <p id="characterModalBio" class="text-dim"></p>
+              <h3 class="card-title mt-4">Frases</h3>
+              <ul class="quote-list" id="characterModalQuotes"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MODAL DE GALERÍA (Bootstrap) ============ -->
+  <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <h2 class="modal-title" id="galleryModalTitle">Imagen</h2>
+            <p class="text-gold small mb-0 mt-1" id="galleryModalSubtitle"></p>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img id="galleryModalImg" alt="" style="max-height: 65vh; width: auto; max-width: 100%; margin: 0 auto; border-radius: 8px;">
+          <p class="text-dim small mt-3 mb-0" id="galleryModalCredit"></p>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <a class="text-gold small" href="./assets/images/CREDITS.md" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-file-text me-1" aria-hidden="true"></i> Ver registro completo de créditos
+          </a>
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ambientación sonora accesible -->
+  <audio id="bgAudio" loop preload="none">
+    <source src="./assets/audio/soundtrack.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Toasts -->
+  <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="false"></div>
+
+  <!-- Bootstrap 5.3 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Aplicación -->
+  <script type="module" src="./src/assets/js/main.js"></script>
+</body>
+</html>

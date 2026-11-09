@@ -1,0 +1,43 @@
+{
+  "name": "the-godfather-archivo-corleone",
+  "version": "1.0.0",
+  "description": "The Godfather - Archivo Corleone - Cinematographic web experience with Bootstrap 5.3",
+  "author": "SENA Aprendiz",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext .js",
+    "format": "prettier --write src/",
+    "test": "vitest",
+    "check:requirements": "node scripts/check-requirements.js"
+  },
+  "dependencies": {
+    "bootstrap": "5.3.3",
+    "bootstrap-icons": "1.11.3",
+    "supabase": "2.15.8",
+    "@supabase/supabase-js": "2.41.0"
+  },
+  "devDependencies": {
+    "vite": "5.4.10",
+    "typescript": "5.6.2",
+    "@types/node": "22.8.1",
+    "eslint": "8.57.1",
+    "prettier": "3.3.3",
+    "vitest": "2.1.6"
+  },
+  "keywords": [
+    "sena",
+    "evidencia-21",
+    "bootstrap",
+    "the-godfather",
+    "cinema",
+    "responsive",
+    "web-app"
+  ],
+  "engines": {
+    "node": ">= 18.0.0"
+  }
+}

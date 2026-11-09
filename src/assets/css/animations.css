@@ -1,0 +1,424 @@
+/* ============================================================
+   THE GODFATHER — ARCHIVO CORLEONE
+   Sistema de animaciones cinematográficas de alto rendimiento.
+   Regla técnica: solo anima transform y opacity.
+   Curva: cubic-bezier(.22,.61,.36,1) | Duraciones: 150–450 ms.
+   ============================================================ */
+
+:root {
+  --anim-ease: cubic-bezier(.22, .61, .36, 1);
+  --anim-fast: 180ms;
+  --anim-mid: 280ms;
+  --anim-slow: 420ms;
+}
+
+/* ---------- 1. Hero: Entrada escalonada ---------- */
+@keyframes hero-stagger-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero__kicker {
+  animation: hero-stagger-in 380ms var(--anim-ease) 100ms both;
+}
+
+.hero__title {
+  animation: hero-stagger-in 440ms var(--anim-ease) 200ms both;
+}
+
+.hero__lead {
+  animation: hero-stagger-in 420ms var(--anim-ease) 300ms both;
+}
+
+.hero__quote {
+  animation: hero-stagger-in 420ms var(--anim-ease) 400ms both;
+}
+
+.hero__actions {
+  animation: hero-stagger-in 400ms var(--anim-ease) 500ms both;
+}
+
+/* ---------- 2. Scroll Reveal con Stagger (60–90 ms) ---------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--anim-slow) var(--anim-ease),
+              transform var(--anim-slow) var(--anim-ease);
+  will-change: opacity, transform;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger progresivo para elementos hijos en la misma fila o cuadrícula */
+.row > [data-reveal]:nth-child(1),
+.gallery > [data-reveal]:nth-child(1) {
+  transition-delay: 0ms;
+}
+.row > [data-reveal]:nth-child(2),
+.gallery > [data-reveal]:nth-child(2) {
+  transition-delay: 75ms;
+}
+.row > [data-reveal]:nth-child(3),
+.gallery > [data-reveal]:nth-child(3) {
+  transition-delay: 150ms;
+}
+.row > [data-reveal]:nth-child(4),
+.gallery > [data-reveal]:nth-child(4) {
+  transition-delay: 225ms;
+}
+.row > [data-reveal]:nth-child(5),
+.gallery > [data-reveal]:nth-child(5) {
+  transition-delay: 300ms;
+}
+.row > [data-reveal]:nth-child(6),
+.gallery > [data-reveal]:nth-child(6) {
+  transition-delay: 375ms;
+}
+.row > [data-reveal]:nth-child(7),
+.gallery > [data-reveal]:nth-child(7) {
+  transition-delay: 450ms;
+}
+
+/* ---------- 3. Navbar: Subrayado dorado animado ---------- */
+.navbar .nav-link {
+  position: relative;
+}
+
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: .85rem;
+  right: .85rem;
+  bottom: .25rem;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-500), transparent);
+  transform: scaleX(0);
+  transform-origin: center;
+  opacity: 0;
+  transition: transform var(--anim-mid) var(--anim-ease),
+              opacity var(--anim-mid) var(--anim-ease);
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link:focus-visible::after,
+.navbar .nav-link.active::after,
+.navbar .nav-link.is-active::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* Botón de audio en navbar */
+.audio-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  font-size: .75rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  padding: .45rem .85rem;
+  transition: transform var(--anim-fast) var(--anim-ease),
+              border-color var(--anim-mid) var(--anim-ease),
+              background var(--anim-mid) var(--anim-ease),
+              box-shadow var(--anim-mid) var(--anim-ease);
+}
+
+.audio-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: var(--gold-500);
+}
+
+.audio-btn.is-playing {
+  border-color: var(--gold-500);
+  color: var(--gold-400);
+  box-shadow: 0 0 14px -3px rgba(185, 154, 88, .5);
+}
+
+.audio-btn:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+/* ---------- 4. Tarjetas de personaje ---------- */
+.character {
+  transition: transform var(--anim-mid) var(--anim-ease),
+              box-shadow var(--anim-mid) var(--anim-ease),
+              border-color var(--anim-mid) var(--anim-ease);
+}
+
+.character:hover,
+.character:focus-visible {
+  transform: translateY(-3px);
+}
+
+.character .card-img-top {
+  transition: transform var(--anim-slow) var(--anim-ease),
+              filter var(--anim-slow) var(--anim-ease);
+}
+
+.character:hover .card-img-top,
+.character:focus-visible .card-img-top {
+  transform: scale(1.05);
+}
+
+.character::after {
+  transition: opacity var(--anim-slow) var(--anim-ease),
+              transform var(--anim-slow) var(--anim-ease);
+}
+
+.character:hover::after,
+.character:focus-visible::after {
+  opacity: .95;
+  transform: scale(1.01);
+}
+
+.character__cta i {
+  display: inline-block;
+  transition: transform var(--anim-mid) var(--anim-ease);
+}
+
+.character:hover .character__cta i,
+.character:focus-visible .character__cta i {
+  transform: translateX(6px);
+}
+
+/* ---------- 5. Galería cinematográfica ---------- */
+.gallery__item {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(185, 154, 88, .16);
+  background: var(--ink-700);
+  cursor: zoom-in;
+  padding: 0;
+  transition: transform var(--anim-mid) var(--anim-ease),
+              border-color var(--anim-mid) var(--anim-ease),
+              box-shadow var(--anim-mid) var(--anim-ease);
+}
+
+.gallery__item:hover,
+.gallery__item:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(185, 154, 88, .5);
+  box-shadow: 0 10px 24px -10px rgba(0, 0, 0, .8);
+}
+
+.gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(.9) contrast(1.04);
+  transition: transform var(--anim-slow) var(--anim-ease),
+              filter var(--anim-slow) var(--anim-ease);
+}
+
+.gallery__item:hover img,
+.gallery__item:focus-visible img {
+  filter: grayscale(0) contrast(1.06);
+  transform: scale(1.06);
+}
+
+.gallery__caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1.6rem 1.1rem .85rem;
+  background: linear-gradient(180deg, transparent, rgba(11, 11, 10, .96) 60%);
+  text-align: left;
+  transform: translateY(10px);
+  opacity: .82;
+  transition: transform var(--anim-mid) var(--anim-ease),
+              opacity var(--anim-mid) var(--anim-ease);
+  pointer-events: none;
+}
+
+.gallery__item:hover .gallery__caption,
+.gallery__item:focus-visible .gallery__caption {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.gallery__caption-title {
+  display: block;
+  font-family: var(--font-display);
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--paper);
+  line-height: 1.25;
+}
+
+.gallery__caption-sub {
+  display: block;
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin-top: .2rem;
+}
+
+/* Apertura cinematográfica de modales (fade + scale) */
+.modal.fade .modal-dialog {
+  transform: scale(.93) translateY(-14px);
+  opacity: 0;
+  transition: transform 300ms var(--anim-ease),
+              opacity 300ms var(--anim-ease);
+}
+
+.modal.show .modal-dialog {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* ---------- 6. Quiz: Animaciones y pulso ---------- */
+.quiz-progress {
+  position: relative;
+  overflow: hidden;
+}
+
+.quiz-progress__fill {
+  transform-origin: left;
+  transition: transform var(--anim-slow) var(--anim-ease),
+              width var(--anim-slow) var(--anim-ease);
+}
+
+@keyframes pulse-correct {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.025); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shake-incorrect {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.quiz-option {
+  transition: transform var(--anim-fast) var(--anim-ease),
+              border-color var(--anim-mid) var(--anim-ease),
+              background var(--anim-mid) var(--anim-ease);
+}
+
+.quiz-option.is-correct {
+  animation: pulse-correct 340ms var(--anim-ease);
+}
+
+.quiz-option.is-wrong {
+  animation: shake-incorrect 340ms var(--anim-ease);
+}
+
+.quiz-result {
+  animation: hero-stagger-in 420ms var(--anim-ease) both;
+}
+
+/* ---------- 7. Formulario: Sacudida y confirmación ---------- */
+@keyframes field-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-3px); }
+}
+
+.form-control.is-invalid,
+.form-select.is-invalid {
+  animation: field-shake 320ms var(--anim-ease);
+}
+
+.form-submit-success {
+  animation: pulse-correct 380ms var(--anim-ease);
+}
+
+/* ---------- 8. Botones y enlaces: Elevación ---------- */
+.btn {
+  transition: transform var(--anim-fast) var(--anim-ease),
+              background var(--anim-mid) var(--anim-ease),
+              border-color var(--anim-mid) var(--anim-ease),
+              color var(--anim-mid) var(--anim-ease),
+              box-shadow var(--anim-mid) var(--anim-ease);
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* ---------- 9. Filetes y separadores: Dibujo scaleX ---------- */
+.rule {
+  transform: scaleX(0);
+  transform-origin: center;
+  opacity: 0;
+  transition: transform 420ms var(--anim-ease),
+              opacity 420ms var(--anim-ease);
+}
+
+.section-head.is-visible .rule,
+.rule.is-visible {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* ---------- 10. Fondos atmosféricos opcionales ---------- */
+.section--with-marble {
+  background-image:
+    linear-gradient(180deg, rgba(16, 16, 15, .92), rgba(16, 16, 15, .95)),
+    url('/assets/images/backdrops/dark-marble.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.section--with-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/images/backdrops/film-grain.svg');
+  opacity: .35;
+  pointer-events: none;
+}
+
+/* ---------- 11. Reducción de movimiento ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  [data-reveal],
+  .rule,
+  .hero__kicker,
+  .hero__title,
+  .hero__lead,
+  .hero__quote,
+  .hero__actions,
+  .gallery__caption,
+  .modal.fade .modal-dialog {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .navbar .nav-link::after {
+    transform: none !important;
+    opacity: 0;
+  }
+
+  .navbar .nav-link.active::after,
+  .navbar .nav-link.is-active::after {
+    opacity: 1 !important;
+  }
+}

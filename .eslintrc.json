@@ -1,0 +1,26 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "extends": ["eslint:recommended"],
+  "globals": {
+    "bootstrap": "readonly"
+  },
+  "ignorePatterns": [
+    "dist/",
+    "node_modules/",
+    "src/assets/js/audioPlayer.js",
+    "src/assets/js/playerUI.js",
+    "src/assets/js/components.js"
+  ],
+  "rules": {
+    "no-console": "off",
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }]
+  }
+}

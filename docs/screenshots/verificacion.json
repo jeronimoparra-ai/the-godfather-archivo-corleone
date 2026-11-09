@@ -1,0 +1,48 @@
+{
+  "quiz": "8 / 8 | 100% DE RESPUESTAS CORRECTAS | Dominio absoluto del archivo Corleone. | INTENTAR DE NUEVO",
+  "modalPersonaje": true,
+  "modalGaleria": true,
+  "escritorio": {
+    "tarjetas": 7,
+    "galeria": 10,
+    "preguntas": 8,
+    "datos": 8,
+    "bootstrap": true,
+    "desbordamiento": false,
+    "imagenesRotas": 0
+  },
+  "menuMovil": true,
+  "movil": {
+    "desbordamiento": false,
+    "imagenesRotas": 0
+  },
+  "tableta": {
+    "desbordamiento": false,
+    "imagenesRotas": 0
+  },
+  "audio": {
+    "reproductorAccesible": true,
+    "sinAutoplayInicial": true,
+    "conmutadorCableado": true,
+    "requiereGestoUsuarioReal": true,
+    "toleranciaBloqueoAutoplay": true,
+    "fallbackSinArchivo": true
+  },
+  "animaciones": {
+    "heroEntradaEscalonada": true,
+    "staggerScrollReveal": true,
+    "navbarSubrayadoDorado": true,
+    "quizPulsoYSacudida": true,
+    "formularioValidacionVisual": true,
+    "prefersReducedMotion": true
+  },
+  "erroresConsola": [],
+  "consola": [
+    "info: Archivo Corleone listo."
+  ],
+  "notasAuditoria": {
+    "politicaAutoplay": "La reproducción real de audio depende de la activación por interacción humana directa del navegador; en caso de rechazo por NotAllowedError el botón permanece habilitado para permitir reintentos.",
+    "fallbackAudio": "Si el archivo soundtrack.mp3 no se encuentra o falla la transferencia de red, el conmutador se deshabilita informando la causa.",
+    "parametrosInspeccion": "Los parámetros ?audio=active y ?modal=gallery se documentan como utilidades de inspección para capturas automatizadas sin alterar el flujo ordinario."
+  }
+}
