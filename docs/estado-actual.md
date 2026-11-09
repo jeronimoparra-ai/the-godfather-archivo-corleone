@@ -47,8 +47,8 @@ Informe: `docs/screenshots/verificacion.json`.
 | Tarea | Bloqueo |
 |---|---|
 | Documento Word de la evidencia | ✅ Generado en la raíz del proyecto |
-| Publicación en GitHub | Requiere cuenta y repositorio del aprendiz |
-| Despliegue público | Requiere credenciales de Supabase y cuenta de hosting |
+| Publicación en GitHub | ✅ https://github.com/jeronimoparra-ai/the-godfather-archivo-corleone |
+| Despliegue público (Vercel) | ✅ https://the-godfather-archivo-corleone-62hrx2hys.vercel.app |
 | Sustituir retratos por material licenciado | Requiere banco de imágenes con licencia |
 
 ## Notas técnicas

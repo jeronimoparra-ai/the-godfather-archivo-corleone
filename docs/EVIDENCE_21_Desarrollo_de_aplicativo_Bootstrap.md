@@ -197,16 +197,15 @@ Las 18 capturas están en `docs/screenshots/`:
 | Capturas reales | ✅ 18 imágenes |
 | Verificación automatizada | ✅ 36/36 y 6/6 |
 | Documento Word | ✅ `EVIDENCIA_21_Desarrollo_de_aplicativo_Bootstrap.docx` |
-| Repositorio en GitHub | ⏳ Pendiente de publicación |
-| Despliegue público | ⏳ Pendiente de credenciales de Supabase y cuenta de hosting |
+| Repositorio en GitHub | ✅ https://github.com/jeronimoparra-ai/the-godfather-archivo-corleone |
+| Despliegue público (Vercel) | ✅ https://the-godfather-archivo-corleone-62hrx2hys.vercel.app (Supabase opcional; opiniones en local si no se configuran claves públicas) |
 
 ## 11. Limitaciones conocidas
 
-- Sin credenciales de Supabase, las opiniones no se comparten entre dispositivos.
+- Sin credenciales de Supabase configuradas, las opiniones no se comparten entre dispositivos (modo local `localStorage`).
 - Los retratos de los intérpretes son material de referencia académica; deben
   sustituirse por imágenes licenciadas para un uso comercial.
-- El despliegue no se realizó porque requiere credenciales y una cuenta de hosting
-  del propietario del proyecto.
+- El despliegue público está publicado en Vercel, pero **sin variables `VITE_SUPABASE_*`** configuradas en el hosting las opiniones quedan en modo local por navegador/dispositivo.
 - No se ejecutó una auditoría formal con herramientas externas (axe, Lighthouse);
   las comprobaciones de accesibilidad son manuales y estructurales.
 

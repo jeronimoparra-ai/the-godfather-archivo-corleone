@@ -161,10 +161,13 @@ GitHub Pages. Para Vercel o Netlify:
 
 - **Build command:** `npm run build`
 - **Output directory:** `dist`
-- **Variables de entorno:** `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`
+- **Variables de entorno (opcionales, solo clave pública):** `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`
 
-No se incluye una URL pública porque el despliegue requiere las credenciales del
-proyecto de Supabase y una cuenta del propietario del repositorio.
+**Publicación realizada:**
+- **Repositorio:** https://github.com/jeronimoparra-ai/the-godfather-archivo-corleone
+- **Aplicativo en producción (Vercel):** https://the-godfather-archivo-corleone-62hrx2hys.vercel.app
+
+Sin credenciales de Supabase configuradas en el hosting, el módulo de opiniones funciona en modo local (`localStorage`). No se usa `service_role`.
 
 ## Documento de evidencia
 
